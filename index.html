@@ -1,1 +1,438 @@
-
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>  محمدرضا حیدری</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- فونت فارسی Vazirmatn -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+  <!-- آیکون‌های FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: 'Vazirmatn', Tahoma, sans-serif;
+      direction: rtl;
+      text-align: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    /* حذف استایل‌های ابر و رعد و برق */
+    .card {
+      background: #23272f;
+      max-width: 370px;
+      margin: 60px auto;
+      padding: 36px 24px 32px 24px;
+      border-radius: 22px;
+      box-shadow:
+        0 0 0 2px rgba(58,113,255,0.22),
+        0 0 32px 8px rgba(58,113,255,0.18),
+        0 0 64px 24px rgba(186,0,255,0.13),
+        0 0 128px 48px rgba(0,255,255,0.10);
+      transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(38px) saturate(160%);
+      -webkit-backdrop-filter: blur(38px) saturate(160%);
+      z-index: 1;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.08);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .card > * { position: relative; z-index: 1; }
+    .shine {
+      position: absolute;
+      top: -400px;
+      left: -240px;
+      width: 80px;
+      height: 1400px;
+      background: linear-gradient(120deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0.0) 100%);
+      opacity: 0.7;
+      border-radius: 40px;
+      filter: blur(2.5px);
+      pointer-events: none;
+      transform: rotate(24deg);
+      animation: shine-move 3.2s cubic-bezier(.4,2,.6,1) 0.2s 1 forwards;
+    }
+    @keyframes shine-move {
+      0% {
+        top: -400px;
+        left: -240px;
+        opacity: 0.15;
+        filter: blur(2.5px);
+      }
+      60% {
+        opacity: 0.8;
+        filter: blur(1.2px);
+      }
+      100% {
+        top: 260px;
+        left: 330px;
+        opacity: 0;
+        filter: blur(8px);
+        display: none;
+      }
+    }
+    .card:hover {
+      transform: translateY(-8px) scale(1.03) rotateZ(-1deg);
+      box-shadow: 0 16px 48px rgba(25, 118, 210, 0.18);
+    }
+    .avatar-link {
+      display: inline-block;
+      border-radius: 50%;
+      box-shadow: 0 2px 12px rgba(25, 118, 210, 0.12);
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .avatar-link:hover .avatar {
+      transform: scale(1.09) rotate(-6deg);
+      box-shadow: 0 6px 24px rgba(233, 30, 99, 0.18);
+    }
+    .avatar {
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      margin-bottom: 18px;
+      object-fit: cover;
+      border: 3px solid #fff;
+      transition: transform 0.3s, box-shadow 0.3s;
+      margin-top: 8px;
+      box-shadow: 0 4px 18px 0 rgba(25, 118, 210, 0.13), 0 1.5px 8px 0 rgba(0,0,0,0.10);
+      position: relative;
+      z-index: 1;
+    }
+    .avatar::after {
+      content: "";
+      position: absolute;
+      top: -8px;
+      left: -8px;
+      width: 128px;
+      height: 128px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.85);
+      opacity: 0.45;
+      filter: blur(5px);
+      z-index: -1;
+      pointer-events: none;
+    }
+    h1 {
+      font-size: 1.6em;
+      margin: 0 0 10px 0;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.5px;
+    }
+    .title {
+      color: #90caf9;
+      font-size: 1.13em;
+      margin-bottom: 18px;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+    }
+    p {
+      margin: 8px 0 8px 0;
+      font-size: 1.04em;
+      line-height: 1.7;
+    }
+    .social {
+      margin-top: 22px;
+      margin-bottom: 0;
+    }
+    .social a {
+      display: inline-block;
+      margin: 0 11px;
+      font-size: 1.5em;
+      width: 44px;
+      height: 44px;
+      line-height: 44px;
+      border-radius: 50%;
+      color: #fff;
+      background: #1976d2;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(25, 118, 210, 0.10);
+      text-align: center;
+      vertical-align: middle;
+    }
+    .social a.insta { background: linear-gradient(135deg,#fd5,#f25,#c13584,#833ab4); }
+    .social a.telegram { background: #229ed9; }
+    .social a.whatsapp { background: #25d366; }
+    .social a.plato { background: linear-gradient(135deg,#00c3ff,#ffff1c); }
+    .social a.cod { background: linear-gradient(135deg,#232526,#414345); }
+    .social a:hover {
+      transform: scale(1.13) rotate(-8deg);
+      box-shadow: 0 6px 24px rgba(25, 118, 210, 0.18);
+      filter: brightness(1.1);
+    }
+    .game-logo {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      vertical-align: middle;
+      background: #fff;
+      object-fit: contain;
+      margin-top: 7px;
+      margin-bottom: 7px;
+    }
+    #phone-text {
+      color: #64b5f6;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.08em;
+      letter-spacing: 0.2px;
+    }
+    #phone {
+      text-decoration: none;
+    }
+    #plato-copy, #cod-copy {
+      cursor: pointer;
+      color: #1976d2;
+      font-size: 1.04em;
+      font-family: inherit;
+      font-weight: 500;
+      padding: 0 2px;
+      transition: color 0.2s;
+    }
+    #plato-copy:hover, #cod-copy:hover {
+      color: #64b5f6;
+    }
+    #copy-msg {
+      color: #43e97b;
+      display: none;
+      margin-right: 10px;
+      font-size: 0.98em;
+      font-family: inherit;
+    }
+    /* Lightning effect on background */
+    .lightning-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .lightning-flash {
+      position: absolute;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.08s;
+      z-index: 11;
+    }
+    .lightning-flash.active {
+      opacity: 1;
+      animation: lightning-flash-bg 0.13s cubic-bezier(.7,0,.9,1) 1;
+    }
+    @keyframes lightning-flash-bg {
+      0% { opacity: 0; }
+      10% { opacity: 1; }
+      40% { opacity: 0.9; }
+      60% { opacity: 0.7; }
+      100% { opacity: 0; }
+    }
+    .lightning-svg {
+      width: 100vw; height: 100vh;
+      position: absolute;
+      left: 0; top: 0;
+      pointer-events: none;
+      overflow: visible;
+    }
+    .lightning-path {
+      stroke: url(#lightning-gradient);
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(0 0 8px #fff) drop-shadow(0 0 16px #ffe066) drop-shadow(0 0 24px #aeefff);
+    }
+    .lightning-main {
+      position: absolute;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(180deg, #fff 0%, #ffe066 40%, #aeefff 80%, #fff0 100%);
+      clip-path: polygon(48% 0, 60% 0, 58% 18%, 66% 22%, 62% 38%, 74% 44%, 60% 60%, 70% 66%, 54% 100%, 50% 80%, 44% 100%, 40% 66%, 50% 60%, 36% 44%, 48% 38%, 44% 22%, 52% 18%, 48% 0);
+      box-shadow: 0 0 64px 18px #fff, 0 0 128px 48px #ffe06688, 0 0 32px 8px #aeefff88;
+      opacity: 0.95;
+    }
+    .lightning-branch {
+      position: absolute;
+      background: linear-gradient(180deg, #fff 0%, #ffe066 60%, #fff0 100%);
+      border-radius: 8px;
+      opacity: 0.7;
+      filter: blur(1.5px);
+    }
+    /* شاخه‌های فرعی با موقعیت و اندازه متفاوت */
+    .lightning-branch.b1 { left: 60%; top: 40%; width: 12px; height: 60px; transform: rotate(18deg); }
+    .lightning-branch.b2 { left: 30%; top: 60%; width: 10px; height: 40px; transform: rotate(-22deg); }
+    .lightning-branch.b3 { left: 50%; top: 70%; width: 8px; height: 30px; transform: rotate(8deg); }
+    .lightning-glow {
+      position: absolute;
+      left: 50%; top: 50%;
+      width: 180%; height: 180%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, #fff8 0%, #ffe06644 40%, #aeefff22 80%, #fff0 100%);
+      opacity: 0.35;
+      filter: blur(18px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .lightning-shape-bg {
+      width: 100%; height: 100%;
+      background: linear-gradient(180deg, #fff 0%, #ffe 60%, #fff0 100%);
+      clip-path: polygon(
+        48% 0, 60% 0, 58% 18%, 66% 22%, 62% 38%, 74% 44%, 60% 60%, 70% 66%, 54% 100%, 50% 80%, 44% 100%, 40% 66%, 50% 60%, 36% 44%, 48% 38%, 44% 22%, 52% 18%, 48% 0
+      );
+      box-shadow: 0 0 64px 18px #fff, 0 0 128px 48px #fff8, 0 0 32px 8px #ffe;
+    }
+    @media (max-width: 600px) {
+      .card {
+        max-width: 98vw;
+        margin: 24px auto;
+        padding: 18px 4vw 18px 4vw;
+      }
+      .lightning-bg {
+        width: 100vw;
+        height: 100vh;
+      }
+      .lightning-flash, .lightning-svg { width: 100vw; height: 100vh; }
+    }
+  </style>
+</head>
+<body>
+  <div class="lightning-bg"></div>
+  <div class="container-card">
+    <div class="card">
+    <div class="shine"></div>
+    <img src="profile.jpg" alt="عکس شما" class="avatar">
+   
+    <h1>محمدرضا حیدری</h1>
+    <p class="title">مهندسی کامپیوتر</p>
+    <p>Phone Number: <a id="phone" href="#"><span id="phone-text"></span></a></p>
+    <p style="display:inline">Plato ID: <span id="plato-copy" style="cursor:pointer;color:#1976d2;">H8O</span></p>
+    <br>
+    <p style="display:inline">Call of Duty UUID: <span id="cod-copy" style="cursor:pointer;color:#1976d2;">cod-uuid-1234</span></p>
+    <span id="copy-msg" style="color:green;display:none;margin-right:10px;">کپی شد!</span>
+    <div class="social">
+      <a id="insta" href="#" target="_blank" class="insta"><i class="fab fa-instagram"></i></a>
+      <a id="telegram" href="#" target="_blank" class="telegram"><i class="fab fa-telegram"></i></a>
+      <a id="whatsapp" href="#" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </div>
+  <script>
+    // اطلاعات قابل ویرایش توسط کاربر
+    const number = '09300383404';
+    const instagramId = 'mohammad_reza_h83';
+    const telegramId = 'Mh_Mh83';
+    const platoName = 'H8O';
+    const codUuid = '6972796975540797441';
+    // ساخت لینک‌ها
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('phone-text').textContent = number;
+      document.getElementById('phone').href = 'tel:' + number;
+      document.getElementById('insta').href = 'https://instagram.com/' + instagramId;
+      document.getElementById('telegram').href = 'https://t.me/' + telegramId;
+      document.getElementById('whatsapp').href = 'https://wa.me/98' + number.replace(/^0/, '');
+      document.getElementById('plato-copy').textContent = platoName;
+      document.getElementById('cod-copy').textContent = codUuid;
+      document.getElementById('plato-copy').onclick = function() {
+        navigator.clipboard.writeText(platoName);
+        showCopyMsg();
+      };
+      document.getElementById('cod-copy').onclick = function() {
+        navigator.clipboard.writeText(codUuid);
+        showCopyMsg();
+      };
+      function showCopyMsg() {
+        const msg = document.getElementById('copy-msg');
+        msg.style.display = 'inline';
+        setTimeout(()=>{msg.style.display='none';}, 1200);
+      }
+    });
+    // Lightning effect on background with SVG
+    function randomLightningPath(x, y, len, angle) {
+      // تولید مسیر رعد و برق با چند شکست
+      let path = `M${x},${y}`;
+      let currX = x, currY = y;
+      let segs = Math.floor(Math.random()*2)+5;
+      let a = angle;
+      for(let i=0;i<segs;i++){
+        let l = len/(segs+1) * (0.7+Math.random()*0.6);
+        a += (Math.random()-0.5)*0.7;
+        currX += l * Math.sin(a);
+        currY += l * Math.cos(a);
+        path += ` L${currX},${currY}`;
+        // شاخه فرعی با احتمال کم
+        if(Math.random()>0.7 && i>1 && i<segs-1){
+          let branchLen = l*0.6;
+          let branchA = a + (Math.random()-0.5)*1.2;
+          let bx = currX + branchLen * Math.sin(branchA);
+          let by = currY + branchLen * Math.cos(branchA);
+          path += ` M${currX},${currY} L${bx},${by}`;
+        }
+      }
+      return path;
+    }
+    function randomLightningBG() {
+      const lightningBg = document.querySelector('.lightning-bg');
+      lightningBg.innerHTML = '';
+      const count = Math.random() > 0.7 ? 2 : 1;
+      for (let i = 0; i < count; i++) {
+        const flash = document.createElement('div');
+        flash.className = 'lightning-flash';
+        // SVG
+        const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+        svg.setAttribute('class','lightning-svg');
+        svg.setAttribute('width','100vw');
+        svg.setAttribute('height','100vh');
+        svg.setAttribute('viewBox','0 0 1000 1000');
+        // گرادینت
+        const defs = document.createElementNS('http://www.w3.org/2000/svg','defs');
+        const grad = document.createElementNS('http://www.w3.org/2000/svg','linearGradient');
+        grad.setAttribute('id','lightning-gradient');
+        grad.setAttribute('x1','0'); grad.setAttribute('y1','0');
+        grad.setAttribute('x2','0'); grad.setAttribute('y2','1');
+        let stop1 = document.createElementNS('http://www.w3.org/2000/svg','stop');
+        stop1.setAttribute('offset','0%'); stop1.setAttribute('stop-color','#fff');
+        let stop2 = document.createElementNS('http://www.w3.org/2000/svg','stop');
+        stop2.setAttribute('offset','60%'); stop2.setAttribute('stop-color','#ffe066');
+        let stop3 = document.createElementNS('http://www.w3.org/2000/svg','stop');
+        stop3.setAttribute('offset','100%'); stop3.setAttribute('stop-color','#aeefff');
+        grad.appendChild(stop1); grad.appendChild(stop2); grad.appendChild(stop3);
+        defs.appendChild(grad);
+        svg.appendChild(defs);
+        // موقعیت و اندازه تصادفی (درصدی برای ریسپانسیو)
+        const x = Math.random()*600+200;
+        const y = Math.random()*200+50;
+        const len = Math.random()*350+250;
+        const angle = (Math.random()-0.5)*0.7;
+        const pathStr = randomLightningPath(x, y, len, angle);
+        const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+        path.setAttribute('d', pathStr);
+        path.setAttribute('class','lightning-path');
+        svg.appendChild(path);
+        flash.appendChild(svg);
+        lightningBg.appendChild(flash);
+        setTimeout(()=>{
+          flash.classList.add('active');
+          setTimeout(()=>{
+            flash.classList.remove('active');
+            setTimeout(()=>{
+              if (flash.parentNode) flash.parentNode.removeChild(flash);
+            }, 80);
+          }, 130);
+        }, 10 + i*80);
+      }
+      setTimeout(randomLightningBG, 2000 + Math.random() * 3000);
+    }
+    window.addEventListener('DOMContentLoaded', function() {
+      setTimeout(randomLightningBG, 1800);
+    });
+  </script>
+</body>
+</html>
