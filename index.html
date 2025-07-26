@@ -2,7 +2,7 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>Mohammad Reza</title>
+  <title>  محمدرضا حیدری</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- فونت فارسی Vazirmatn -->
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
@@ -420,6 +420,123 @@
       margin-top: 0;
       font-weight: 600;
     }
+    .main-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin: 24px 0 0 0;
+    }
+    .main-btn {
+      background: linear-gradient(90deg,#1976d2 60%,#43e97b 100%);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 10px 28px;
+      font-size: 1.08em;
+      font-family: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 12px rgba(25, 118, 210, 0.13);
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .main-btn:hover {
+      background: linear-gradient(90deg,#43e97b 0%,#1976d2 100%);
+      transform: scale(1.06) translateY(-2px);
+      box-shadow: 0 6px 24px rgba(25, 118, 210, 0.18);
+    }
+    .back-btn {
+      background: linear-gradient(90deg,#1976d2 60%,#43e97b 100%);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 9px 32px;
+      font-size: 1.08em;
+      font-family: inherit;
+      font-weight: 700;
+      margin-bottom: 18px;
+      margin-top: 8px;
+      cursor: pointer;
+      box-shadow: 0 2px 12px rgba(25, 118, 210, 0.13);
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      letter-spacing: 0.5px;
+    }
+    .back-btn:hover {
+      background: linear-gradient(90deg,#43e97b 0%,#1976d2 100%);
+      color: #fff;
+      box-shadow: 0 6px 24px rgba(25, 118, 210, 0.18);
+    }
+    /* Pulse animation for main buttons */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.07); }
+      100% { transform: scale(1); }
+    }
+    .main-btn {
+      animation: pulse 2.5s infinite;
+    }
+
+    /* Fade in up for cards */
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .card, .bank-card-box, .game-card-box {
+      animation: fadeInUp 0.8s cubic-bezier(.4,2,.6,1);
+    }
+
+    /* Pulse glow around avatar */
+    @keyframes avatarPulse {
+      0% {
+        box-shadow:
+          0 0 0 0 rgba(58,113,255,0.22),
+          0 0 0 0 rgba(186,0,255,0.13),
+          0 0 0 0 rgba(0,255,255,0.10),
+          0 4px 18px 0 rgba(25, 118, 210, 0.13);
+      }
+      50% {
+        box-shadow:
+          0 0 0 10px rgba(58,113,255,0.13),
+          0 0 0 20px rgba(186,0,255,0.08),
+          0 0 0 0 rgba(0,255,255,0.00),
+          0 4px 18px 0 rgba(25, 118, 210, 0.13);
+      }
+      100% {
+        box-shadow:
+          0 0 0 0 rgba(58,113,255,0.22),
+          0 0 0 0 rgba(186,0,255,0.13),
+          0 0 0 0 rgba(0,255,255,0.10),
+          0 4px 18px 0 rgba(25, 118, 210, 0.13);
+      }
+    }
+    .avatar {
+      animation: avatarPulse 2.8s infinite;
+    }
+    /* Lightning border animation */
+    .lightning-border {
+      pointer-events: none;
+      position: absolute;
+      inset: 0;
+      border-radius: 22px;
+      z-index: 2;
+    }
+    .lightning-border-line {
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      left: 0; top: 0;
+      border-radius: 3px;
+      background: linear-gradient(90deg, #fff 0%, #ffe066 60%, #aeefff 100%);
+      box-shadow: 0 0 16px 4px #fff8, 0 0 32px 8px #ffe06688;
+      opacity: 0.85;
+      animation: lightning-border-move 2.2s linear infinite;
+    }
+    @keyframes lightning-border-move {
+      0% { left: 0; width: 0; opacity: 0; }
+      10% { opacity: 1; }
+      50% { left: 0; width: 100%; opacity: 1; }
+      90% { opacity: 1; }
+      100% { left: 100%; width: 0; opacity: 0; }
+    }
     @media (max-width: 600px) {
       .card {
         max-width: 98vw;
@@ -434,61 +551,81 @@
     }
   </style>
 </head>
+
 <body>
   <div class="lightning-bg"></div>
   <div class="container-card">
-  <div class="card">
-    <div class="shine"></div>
-    <img src="profile.jpg" alt="عکس شما" class="avatar">
-   
-    <h1>محمدرضا حیدری</h1>
-    <div class="slogan">مهندسی کامپیوتر</div>
-    <p class="title">مهندسی کامپیوتر</p>
-    <p>Phone Number: <a id="phone" href="#"><span id="phone-text"></span></a></p>
-    <button class="save-contact-btn" onclick="downloadVCF()" style="margin:10px 0 0 0;"><i class="fa fa-address-book"></i> ذخیره مخاطب</button>
-    <div class="social">
-      <a id="insta" href="#" target="_blank" class="insta" title="اینستاگرام"><i class="fab fa-instagram"></i></a>
-      <a id="telegram" href="#" target="_blank" class="telegram" title="تلگرام"><i class="fab fa-telegram"></i></a>
-      <a id="whatsapp" href="#" target="_blank" class="whatsapp" title="واتساپ"><i class="fab fa-whatsapp"></i></a>
-    </div>
-  </div>
-  <div class="bank-card-box">
-    <div class="cards-section">
-      <h3>شماره کارت‌های من</h3>
-      <div class="bank-card">
-        <span class="bank-name">ملی</span>
-        <span class="card-number">6037 9982 7203 2755</span>
-        <span class="copy-card" onclick="copyCard('6037998272032755', this)">کپی</span>
+    <div class="card" id="main-card" style="position:relative;">
+      <div class="lightning-border">
+        <div class="lightning-border-line"></div>
+        <div class="lightning-border-line" style="top:auto;bottom:0;transform:rotate(180deg);"></div>
       </div>
-      <div class="bank-card">
-        <span class="bank-name">مهر</span>
-        <span class="card-number">6063 7311 7547 3850</span>
-        <span class="copy-card" onclick="copyCard('6063731175473850', this)">کپی</span>
-      </div>
-      <div class="bank-card">
-        <span class="bank-name">بلو</span>
-        <span class="card-number">6219 8619 7586 9537</span>
-        <span class="copy-card" onclick="copyCard('6219861975869537', this)">کپی</span>
-      </div>
-      <div class="bank-card">
-        <span class="bank-name">سپه</span>
-        <span class="card-number">5892 1014 6426 8123</span>
-        <span class="copy-card" onclick="copyCard('5892101464268123', this)">کپی</span>
+      <div class="shine"></div>
+      <img src="profile.jpg" alt="عکس شما" class="avatar">
+     
+      <h1>محمدرضا حیدری</h1>
+      <div class="slogan">مهندسی کامپیوتر</div>
+      <p class="title">مهندسی کامپیوتر</p>
+      <p>Phone Number: <a id="phone" href="#"><span id="phone-text"></span></a></p>
+      <button class="save-contact-btn" onclick="downloadVCF()" style="margin:10px 0 0 0;"><i class="fa fa-address-book"></i> ذخیره مخاطب</button>
+      <div class="social">
+        <a id="insta" href="#" target="_blank" class="insta" title="اینستاگرام"><i class="fab fa-instagram"></i></a>
+        <a id="telegram" href="#" target="_blank" class="telegram" title="تلگرام"><i class="fab fa-telegram"></i></a>
+        <a id="whatsapp" href="#" target="_blank" class="whatsapp" title="واتساپ"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
-    <div id="copy-card-msg" style="display:none;color:#43e97b;font-size:0.98em;text-align:center;margin-top:8px;">کپی شد!</div>
-  </div>
-  <div class="game-card-box">
-    <div class="games-section-title">بازی‌ها</div>
-    <div style="margin-bottom: 8px; display: flex; justify-content: flex-start; align-items: center; gap: 8px; direction: ltr; text-align: left;">
-      <span style="font-weight:600; color:#fff;">Plato ID:</span>
-      <span id="plato-copy" style="cursor:pointer;color:#1976d2;">H8O</span>
+    <div class="main-buttons" id="main-buttons">
+      <button class="main-btn" onclick="showSection('cards')">شماره کارت‌ها</button>
+      <button class="main-btn" onclick="showSection('games')">بازی‌ها</button>
     </div>
-    <div style="display: flex; justify-content: flex-start; align-items: center; gap: 8px; direction: ltr; text-align: left;">
-      <span style="font-weight:600; color:#fff;">Call of Duty:</span>
-      <span id="cod-copy" style="cursor:pointer;color:#1976d2;">cod-uuid-1234</span>
+    <div class="bank-card-box" id="bank-card-box" style="display:none;position:relative;">
+      <div class="lightning-border">
+        <div class="lightning-border-line"></div>
+        <div class="lightning-border-line" style="top:auto;bottom:0;transform:rotate(180deg);"></div>
+      </div>
+      <button class="back-btn" onclick="showSection('main')">بازگشت به صفحه اصلی</button>
+      <div class="cards-section">
+        <h3>شماره کارت‌های من</h3>
+        <div class="bank-card">
+          <span class="bank-name">ملی</span>
+          <span class="card-number">6037 9982 7203 2755</span>
+          <span class="copy-card" onclick="copyCard('6037998272032755', this)">کپی</span>
+        </div>
+        <div class="bank-card">
+          <span class="bank-name">مهر</span>
+          <span class="card-number">6063 7311 7547 3850</span>
+          <span class="copy-card" onclick="copyCard('6063731175473850', this)">کپی</span>
+        </div>
+        <div class="bank-card">
+          <span class="bank-name">بلو</span>
+          <span class="card-number">6219 8619 7586 9537</span>
+          <span class="copy-card" onclick="copyCard('6219861975869537', this)">کپی</span>
+        </div>
+        <div class="bank-card">
+          <span class="bank-name">سپه</span>
+          <span class="card-number">5892 1014 6426 8123</span>
+          <span class="copy-card" onclick="copyCard('5892101464268123', this)">کپی</span>
+        </div>
+      </div>
+      <div id="copy-card-msg" style="display:none;color:#43e97b;font-size:0.98em;text-align:center;margin-top:8px;">کپی شد!</div>
     </div>
-    <span id="copy-msg" style="color:green;display:none;margin-right:10px;">کپی شد!</span>
+    <div class="game-card-box" id="game-card-box" style="display:none;position:relative;">
+      <div class="lightning-border">
+        <div class="lightning-border-line"></div>
+        <div class="lightning-border-line" style="top:auto;bottom:0;transform:rotate(180deg);"></div>
+      </div>
+      <button class="back-btn" onclick="showSection('main')">بازگشت به صفحه اصلی</button>
+      <div class="games-section-title">بازی‌ها</div>
+      <div style="margin-bottom: 8px; display: flex; justify-content: flex-start; align-items: center; gap: 8px; direction: ltr; text-align: left;">
+        <span style="font-weight:600; color:#fff;">Plato ID:</span>
+        <span id="plato-copy" style="cursor:pointer;color:#1976d2;">H8O</span>
+      </div>
+      <div style="display: flex; justify-content: flex-start; align-items: center; gap: 8px; direction: ltr; text-align: left;">
+        <span style="font-weight:600; color:#fff;">Call of Duty:</span>
+        <span id="cod-copy" style="cursor:pointer;color:#1976d2;">cod-uuid-1234</span>
+      </div>
+      <span id="copy-msg" style="color:green;display:none;margin-right:10px;">کپی شد!</span>
+    </div>
   </div>
   <script>
     // اطلاعات قابل ویرایش توسط کاربر
@@ -618,6 +755,13 @@
       const msg = box.querySelector('#copy-card-msg');
       msg.style.display = 'block';
       setTimeout(()=>{msg.style.display='none';}, 1200);
+    }
+    // نمایش بخش‌ها
+    function showSection(section) {
+      document.getElementById('main-card').style.display = (section === 'main') ? '' : 'none';
+      document.getElementById('main-buttons').style.display = (section === 'main') ? '' : 'none';
+      document.getElementById('bank-card-box').style.display = (section === 'cards') ? '' : 'none';
+      document.getElementById('game-card-box').style.display = (section === 'games') ? '' : 'none';
     }
   </script>
 </body>
