@@ -20,7 +20,7 @@
     }
     /* حذف استایل‌های ابر و رعد و برق */
     .card {
-      background: #23272f;
+      background: rgba(35,39,47,0.82);
       max-width: 370px;
       margin: 60px auto;
       padding: 36px 24px 32px 24px;
@@ -33,9 +33,10 @@
       transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
       position: relative;
       overflow: hidden;
-      backdrop-filter: blur(38px) saturate(160%);
-      -webkit-backdrop-filter: blur(38px) saturate(160%);
+      backdrop-filter: blur(18px) saturate(160%);
+      -webkit-backdrop-filter: blur(18px) saturate(160%);
       z-index: 1;
+      border: 1.5px solid rgba(255,255,255,0.13);
     }
     .card::before {
       content: "";
@@ -145,7 +146,9 @@
       margin-bottom: 0;
     }
     .social a {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       margin: 0 11px;
       font-size: 1.5em;
       width: 44px;
@@ -158,16 +161,18 @@
       box-shadow: 0 2px 8px rgba(25, 118, 210, 0.10);
       text-align: center;
       vertical-align: middle;
+      border: 2px solid #fff2;
     }
-    .social a.insta { background: linear-gradient(135deg,#fd5,#f25,#c13584,#833ab4); }
-    .social a.telegram { background: #229ed9; }
-    .social a.whatsapp { background: #25d366; }
+    .social a.insta { background: linear-gradient(135deg,#fd5,#f25,#c13584,#833ab4); border-color: #c13584; }
+    .social a.telegram { background: linear-gradient(135deg,#229ed9,#43e97b); border-color: #229ed9; }
+    .social a.whatsapp { background: linear-gradient(135deg,#25d366,#43e97b); border-color: #25d366; }
     .social a.plato { background: linear-gradient(135deg,#00c3ff,#ffff1c); }
     .social a.cod { background: linear-gradient(135deg,#232526,#414345); }
     .social a:hover {
       transform: scale(1.13) rotate(-8deg);
       box-shadow: 0 6px 24px rgba(25, 118, 210, 0.18);
       filter: brightness(1.1);
+      border-color: #fff8;
     }
     .game-logo {
       width: 28px;
@@ -207,6 +212,100 @@
       margin-right: 10px;
       font-size: 0.98em;
       font-family: inherit;
+    }
+    .save-contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: linear-gradient(90deg,#1976d2 60%,#43e97b 100%);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 8px 18px;
+      font-size: 1.08em;
+      font-family: inherit;
+      font-weight: 600;
+      margin: 18px 0 8px 0;
+      cursor: pointer;
+      box-shadow: 0 2px 12px rgba(25, 118, 210, 0.13);
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .save-contact-btn:hover {
+      background: linear-gradient(90deg,#43e97b 0%,#1976d2 100%);
+      transform: scale(1.06) translateY(-2px);
+      box-shadow: 0 6px 24px rgba(25, 118, 210, 0.18);
+    }
+    .qr-container {
+      margin: 18px auto 0 auto;
+      display: flex;
+      justify-content: center;
+    }
+    .qr-container img {
+      width: 92px;
+      height: 92px;
+      border-radius: 16px;
+      background: #fff;
+      padding: 7px;
+      box-shadow: 0 2px 12px rgba(25, 118, 210, 0.10);
+    }
+    .slogan {
+      display: none;
+    }
+    .cards-section {
+      margin: 0;
+      text-align: right;
+    }
+    .bank-card-box {
+      background: rgba(35,39,47,0.92);
+      max-width: 340px;
+      margin: 24px auto 0 auto;
+      padding: 18px 18px 12px 18px;
+      border-radius: 18px;
+      box-shadow:
+        0 0 0 1.5px rgba(58,113,255,0.13),
+        0 0 16px 4px rgba(58,113,255,0.10),
+        0 0 32px 12px rgba(186,0,255,0.07);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px) saturate(140%);
+      -webkit-backdrop-filter: blur(10px) saturate(140%);
+      border: 1px solid rgba(255,255,255,0.10);
+      z-index: 1;
+    }
+    .bank-card {
+      background: rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 7px 12px;
+      margin-bottom: 7px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.08em;
+    }
+    .bank-name {
+      color: #ffe066;
+      font-weight: 600;
+      min-width: 38px;
+    }
+    .card-number {
+      font-family: monospace;
+      letter-spacing: 2px;
+      color: #fff;
+      font-size: 1.08em;
+      direction: ltr;
+    }
+    .copy-card {
+      cursor: pointer;
+      color: #1976d2;
+      font-size: 1em;
+      margin-right: auto;
+      padding: 2px 8px;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .copy-card:hover {
+      background: #1976d2;
+      color: #fff;
     }
     /* Lightning effect on background */
     .lightning-bg {
@@ -290,6 +389,37 @@
       );
       box-shadow: 0 0 64px 18px #fff, 0 0 128px 48px #fff8, 0 0 32px 8px #ffe;
     }
+    .game-card-box {
+      background: rgba(35,39,47,0.92);
+      max-width: 340px;
+      margin: 24px auto 0 auto;
+      padding: 18px 18px 12px 18px;
+      border-radius: 18px;
+      box-shadow:
+        0 0 0 1.5px rgba(58,113,255,0.13),
+        0 0 16px 4px rgba(58,113,255,0.10),
+        0 0 32px 12px rgba(186,0,255,0.07);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px) saturate(140%);
+      -webkit-backdrop-filter: blur(10px) saturate(140%);
+      border: 1px solid rgba(255,255,255,0.10);
+      z-index: 1;
+      text-align: center;
+      font-size: 1.08em;
+    }
+    .game-card-box p {
+      margin: 8px 0 8px 0;
+      font-size: 1.04em;
+      line-height: 1.7;
+    }
+    .games-section-title {
+      color: #90caf9;
+      font-size: 1.08em;
+      margin-bottom: 8px;
+      margin-top: 0;
+      font-weight: 600;
+    }
     @media (max-width: 600px) {
       .card {
         max-width: 98vw;
@@ -307,22 +437,58 @@
 <body>
   <div class="lightning-bg"></div>
   <div class="container-card">
-    <div class="card">
+  <div class="card">
     <div class="shine"></div>
     <img src="profile.jpg" alt="عکس شما" class="avatar">
    
     <h1>محمدرضا حیدری</h1>
+    <div class="slogan">مهندسی کامپیوتر</div>
     <p class="title">مهندسی کامپیوتر</p>
     <p>Phone Number: <a id="phone" href="#"><span id="phone-text"></span></a></p>
-    <p style="display:inline">Plato ID: <span id="plato-copy" style="cursor:pointer;color:#1976d2;">H8O</span></p>
-    <br>
-    <p style="display:inline">Call of Duty UUID: <span id="cod-copy" style="cursor:pointer;color:#1976d2;">cod-uuid-1234</span></p>
-    <span id="copy-msg" style="color:green;display:none;margin-right:10px;">کپی شد!</span>
+    <button class="save-contact-btn" onclick="downloadVCF()" style="margin:10px 0 0 0;"><i class="fa fa-address-book"></i> ذخیره مخاطب</button>
     <div class="social">
-      <a id="insta" href="#" target="_blank" class="insta"><i class="fab fa-instagram"></i></a>
-      <a id="telegram" href="#" target="_blank" class="telegram"><i class="fab fa-telegram"></i></a>
-      <a id="whatsapp" href="#" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+      <a id="insta" href="#" target="_blank" class="insta" title="اینستاگرام"><i class="fab fa-instagram"></i></a>
+      <a id="telegram" href="#" target="_blank" class="telegram" title="تلگرام"><i class="fab fa-telegram"></i></a>
+      <a id="whatsapp" href="#" target="_blank" class="whatsapp" title="واتساپ"><i class="fab fa-whatsapp"></i></a>
     </div>
+  </div>
+  <div class="bank-card-box">
+    <div class="cards-section">
+      <h3>شماره کارت‌های من</h3>
+      <div class="bank-card">
+        <span class="bank-name">ملی</span>
+        <span class="card-number">6037 9912 3456 7890</span>
+        <span class="copy-card" onclick="copyCard('6037991234567890', this)">کپی</span>
+      </div>
+      <div class="bank-card">
+        <span class="bank-name">مهر</span>
+        <span class="card-number">6063 7311 7547 3850</span>
+        <span class="copy-card" onclick="copyCard('6063731175473850', this)">کپی</span>
+      </div>
+      <div class="bank-card">
+        <span class="bank-name">بلو</span>
+        <span class="card-number">6219 8619 7586 9537</span>
+        <span class="copy-card" onclick="copyCard('6219861975869537', this)">کپی</span>
+      </div>
+      <div class="bank-card">
+        <span class="bank-name">سپه</span>
+        <span class="card-number">5892 1014 6426 8123</span>
+        <span class="copy-card" onclick="copyCard('5892101464268123', this)">کپی</span>
+      </div>
+    </div>
+    <div id="copy-card-msg" style="display:none;color:#43e97b;font-size:0.98em;text-align:center;margin-top:8px;">کپی شد!</div>
+  </div>
+  <div class="game-card-box">
+    <div class="games-section-title">بازی‌ها</div>
+    <div style="margin-bottom: 8px; display: flex; justify-content: flex-start; align-items: center; gap: 8px; direction: ltr; text-align: left;">
+      <span style="font-weight:600; color:#fff;">Plato ID:</span>
+      <span id="plato-copy" style="cursor:pointer;color:#1976d2;">H8O</span>
+    </div>
+    <div style="display: flex; justify-content: flex-start; align-items: center; gap: 8px; direction: ltr; text-align: left;">
+      <span style="font-weight:600; color:#fff;">Call of Duty:</span>
+      <span id="cod-copy" style="cursor:pointer;color:#1976d2;">cod-uuid-1234</span>
+    </div>
+    <span id="copy-msg" style="color:green;display:none;margin-right:10px;">کپی شد!</span>
   </div>
   <script>
     // اطلاعات قابل ویرایش توسط کاربر
@@ -433,6 +599,26 @@
     window.addEventListener('DOMContentLoaded', function() {
       setTimeout(randomLightningBG, 1800);
     });
+    // دانلود vcf
+    function downloadVCF() {
+      const vcf = `BEGIN:VCARD\nVERSION:3.0\nFN:محمدرضا حیدری\nTEL;TYPE=CELL:09300383404\nEMAIL:mohammad_reza_h83@gmail.com\nEND:VCARD`;
+      const blob = new Blob([vcf], {type: 'text/vcard'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'mohammad_heydari.vcf';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+    // کپی شماره کارت
+    function copyCard(number, el) {
+      navigator.clipboard.writeText(number);
+      // پیام فقط در bank-card-box نمایش داده شود
+      const box = document.querySelector('.bank-card-box');
+      const msg = box.querySelector('#copy-card-msg');
+      msg.style.display = 'block';
+      setTimeout(()=>{msg.style.display='none';}, 1200);
+    }
   </script>
 </body>
 </html>
